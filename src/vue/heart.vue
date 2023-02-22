@@ -50,7 +50,6 @@ import * as VFX from 'react-vfx';
     color: #FCFFE7;
     line-height: 1.2;
 }
-
 .redBack {
     background-color: #EB455F;
     display: flex;
@@ -58,8 +57,8 @@ import * as VFX from 'react-vfx';
     align-items: center;
     position: relative;
 }
-
 .fillDiv {
     height: 100%;
     width: 100%;
-}</style>
+}
+</style>
