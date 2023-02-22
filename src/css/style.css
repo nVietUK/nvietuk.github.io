@@ -7,3 +7,8 @@ body {
   min-height: 100vh;
   background-color: black;
 }
+
+@font-face {
+  font-family: handwriting;
+  src: url(../ttf/Callista.ttf);
+}
