@@ -1,9 +1,10 @@
 <script setup lang="ts">
+import * as VFX from 'react-vfx';
 </script>
 
 <template>
-    <div class="redBack fillDiv">
-        <pre class="consola whiteFont">
+  <div class="redBack fillDiv">
+    <pre class="consola whiteFont">
         &#BBGGGGBB#&          &#BBGGGGBB#&        
       #GPPPPPPPPPPPPGB&    &BGPPPPPPPPPPPPG#      
     #GPPPPPPPPPPPPPPPPPB  BPPPPPPPPPPPPPPPPPG#    
@@ -24,9 +25,9 @@
                    #GPPPPPPPPG#                   
                      &BPPPPB&                     
                        &BB&                       
-        </pre>
-        <pre class="handwriting">Anh yêu bé</pre>
-    </div>
+    </pre>
+    <pre class="handwriting">Anh yêu bé</pre>
+  </div>
 </template>
 
 <style>
