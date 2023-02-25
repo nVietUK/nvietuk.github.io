@@ -1,5 +1,5 @@
 <template>
-    <div class="screen screenHeight" id="mainScreen">
+    <div class="screen" id="mainScreen">
         <div class="fillScreen">
             <RouterView></RouterView>
         </div>
@@ -33,8 +33,15 @@
 import $ from 'jquery';
 $(window).resize(function () {
     const mainScreen = $('#mainScreen')
-    const windowWidth = $(window).width() ?? null, windowHeight = $(window).height() ?? null;
+    const windowWidth = $(window).width(), windowHeight = $(window).height();
     if (windowHeight / windowWidth < 3 / 4) { mainScreen.removeClass('screenWidth').addClass('screenHeight'); }
     else { mainScreen.addClass('screenWidth').removeClass('screenHeight'); }
+})
+
+$(document).ready(function() {
+    const mainScreen=$('#mainScreen')
+    const windowWidth=$(window).width(), windowHeight=$(window).height();
+    if (windowHeight / windowWidth < 3/4) { mainScreen.addClass('screenHeight');}
+    else { mainScreen.addClass('screenWidth'); }
 })
 </script>
