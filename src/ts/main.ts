@@ -5,6 +5,17 @@ import routerweb from '@/vue/router.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import home from '@/vue/Home.vue'
 
+// Vuetify
+import 'vuetify/styles'
+import { createVuetify } from 'vuetify'
+import * as components from 'vuetify/components'
+import * as directives from 'vuetify/directives'
+
+const vuetify = createVuetify({
+  components,
+  directives,
+})
+
 // Vue router
 const router = createRouter({
     history: createWebHistory(),
@@ -16,4 +27,5 @@ const router = createRouter({
 
 createApp(routerweb)
 .use(router)
-.mount('#main')
+.use(vuetify)
+.mount('#router')
