@@ -1,6 +1,6 @@
 <template>
     <div class="screen" id="mainScreen">
-        <div class="fillScreen">
+        <div class="fillScreen container boxOutline">
             <RouterView></RouterView>
         </div>
     </div>
@@ -25,7 +25,9 @@
 .fillScreen {
     width: 100%;
     height: 100%;
-    outline: 2px solid white;
+}
+.boxOutline {
+    outline: 2px solid #EEEEEE;
 }
 </style>
 

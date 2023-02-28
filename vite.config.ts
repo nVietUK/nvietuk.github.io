@@ -8,7 +8,8 @@ export default defineConfig({
   server: { watch: { usePolling: true } },
   resolve: {
     alias: {
-      '@': resolve(__dirname, './src')
+      '@': resolve(__dirname, './src'),
+      '~bootstrap': resolve(__dirname, 'node_modules/bootstrap'),
     }
   }
 })
