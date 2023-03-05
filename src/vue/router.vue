@@ -35,14 +35,14 @@
 import $ from 'jquery';
 $(window).resize(function () {
     const mainScreen = $('#mainScreen')
-    const windowWidth = $(window).width(), windowHeight = $(window).height();
+    const windowWidth = $(window).width() ?? screen.width, windowHeight = $(window).height() ?? screen.height;
     if (windowHeight / windowWidth < 3 / 4) { mainScreen.removeClass('screenWidth').addClass('screenHeight'); }
     else { mainScreen.addClass('screenWidth').removeClass('screenHeight'); }
 })
 
 $(document).ready(function() {
     const mainScreen=$('#mainScreen')
-    const windowWidth=$(window).width(), windowHeight=$(window).height();
+    const windowWidth = $(window).width() ?? screen.width, windowHeight = $(window).height() ?? screen.height;
     if (windowHeight / windowWidth < 3/4) { mainScreen.addClass('screenHeight');}
     else { mainScreen.addClass('screenWidth'); }
 })
