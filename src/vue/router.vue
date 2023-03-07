@@ -41,16 +41,9 @@ $(window).resize(function () {
     else { mainScreen.addClass('screenWidth').removeClass('screenHeight'); }
 })
 
-$(document).ready(function () {
-    // frame resizing
-    const mainScreen = $('#mainScreen')
-    const windowWidth = $(window).width() ?? screen.width, windowHeight = $(window).height() ?? screen.height;
-    if (windowHeight / windowWidth < 3 / 4) { mainScreen.addClass('screenHeight'); }
-    else { mainScreen.addClass('screenWidth'); }
-
-    // nav magic
-    const mainTabs = document.querySelectorAll(".nav-link");
-    const mainTabContents = document.querySelectorAll(".tab-pane");
+function tabEffect(tabName: string, paneName: string) {
+    const mainTabs = document.querySelectorAll(tabName);
+    const mainTabContents = document.querySelectorAll(paneName);
     mainTabs.forEach((tab) => {
         tab.addEventListener("mouseover", () => {
             mainTabs.forEach((tab) => tab.classList.remove("active"));
@@ -59,5 +52,17 @@ $(document).ready(function () {
             document.querySelector(tab.getAttribute("data-toTab")!)?.classList.add("active");
         });
     });
+}
+
+$(document).ready(function () {
+    // frame resizing
+    const mainScreen = $('#mainScreen')
+    const windowWidth = $(window).width() ?? screen.width, windowHeight = $(window).height() ?? screen.height;
+    if (windowHeight / windowWidth < 3 / 4) { mainScreen.addClass('screenHeight'); }
+    else { mainScreen.addClass('screenWidth'); }
+
+    // nav magic
+    tabEffect(".mainTab1", ".mainPane1");
+    tabEffect(".mainTab2", ".mainPane2");
 })
 </script>

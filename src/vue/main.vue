@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import myProfile from '@/vue/myProfile.vue'
-import myGames from '@/vue/pacman.vue'
+import gameDino from '@/vue/dinogame.vue'
 </script>
 
 <template>
@@ -8,23 +8,38 @@ import myGames from '@/vue/pacman.vue'
 		<div class="col-3 boxOutline" style="padding-left: 0%; padding-right: 0%;">
 			<ul class="nav flex-column">
 				<li class="nav-item active">
-					<router-link to="/home" class="nav-link" data-toTab="#myProfile">My profile</router-link>
+					<router-link to="/home" class="nav-link mainTab1" data-toTab="#myProfile">My profile</router-link>
 				</li>
 				<li class="nav-item">
-					<router-link to="/" class="nav-link" data-toTab="#myGames">Games</router-link>
+					<router-link to="/" class="nav-link mainTab1" data-toTab="#myGames">Games</router-link>
 				</li>
 				<li class="nav-item">
-					<router-link to="" class="nav-link" data-toTab="#myCodes">Codes</router-link>
+					<router-link to="" class="nav-link mainTab1" data-toTab="#myCodes">Codes</router-link>
 				</li>
 			</ul>
 		</div>
 		<div class="col-9">
-			<div class="tab-content well">
-				<div class="tab-pane active" id="myProfile">
+			<div class="tab-content fillHeight">
+				<div class="tab-pane active mainPane1" id="myProfile">
 					<myProfile></myProfile>
 				</div>
-				<div class="tab-pane" id="myGames">
-					<myGames/>
+				<div class="tab-pane fillHeight mainPane1" id="myGames">
+					<div class="row fillHeight">
+						<div class="col-3 boxOutline" style="padding-left: 0%; padding-right: 0%;">
+							<ul class="nav flex-column">
+								<li class="nav-item active">
+									<router-link to="/" class="nav-link mainTab2" data-toTab="#gameDino">Dino</router-link>
+								</li>
+							</ul>
+						</div>
+						<div class="col-9">
+							<div class="tab-content well">
+								<div class="tab-pane mainPane2 active" id="gameDino">
+									<gameDino></gameDino>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -32,6 +47,14 @@ import myGames from '@/vue/pacman.vue'
 </template>
 
 <style>
+.mainTab1 {}
+
+.mainPane1 {}
+
+.mainTab2 {}
+
+.mainPane2 {}
+
 .fillHeight {
 	height: 100%;
 }
