@@ -26,6 +26,7 @@
     width: 100%;
     height: 100%;
 }
+
 .boxOutline {
     outline: 2px solid #EEEEEE;
 }
@@ -40,10 +41,23 @@ $(window).resize(function () {
     else { mainScreen.addClass('screenWidth').removeClass('screenHeight'); }
 })
 
-$(document).ready(function() {
-    const mainScreen=$('#mainScreen')
+$(document).ready(function () {
+    // frame resizing
+    const mainScreen = $('#mainScreen')
     const windowWidth = $(window).width() ?? screen.width, windowHeight = $(window).height() ?? screen.height;
-    if (windowHeight / windowWidth < 3/4) { mainScreen.addClass('screenHeight');}
+    if (windowHeight / windowWidth < 3 / 4) { mainScreen.addClass('screenHeight'); }
     else { mainScreen.addClass('screenWidth'); }
+
+    // nav magic
+    const mainTabs = document.querySelectorAll(".nav-link");
+    const mainTabContents = document.querySelectorAll(".tab-pane");
+    mainTabs.forEach((tab) => {
+        tab.addEventListener("mouseover", () => {
+            mainTabs.forEach((tab) => tab.classList.remove("active"));
+            mainTabContents.forEach((tabContent) => tabContent.classList.remove("active"));
+            tab.classList.add("active");
+            document.querySelector(tab.getAttribute("data-toTab")!)!.classList.add("active");
+        });
+    });
 })
 </script>

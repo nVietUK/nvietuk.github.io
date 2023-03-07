@@ -7,13 +7,13 @@ import myProfile from '@/vue/Home.vue'
 		<div class="col-3 boxOutline" style="padding-left: 0%; padding-right: 0%;">
 			<ul class="nav flex-column">
 				<li class="nav-item active">
-					<router-link to="/home" class="nav-link" href="#myProfile" data-toggle="tab">My profile</router-link>
+					<router-link to="/home" class="nav-link" data-toTab="#myProfile">My profile</router-link>
 				</li>
 				<li class="nav-item">
-					<router-link to="" class="nav-link" href="#myGames" data-toggle="tab">Games</router-link>
+					<router-link to="" class="nav-link" data-toTab="#myGames">Games</router-link>
 				</li>
 				<li class="nav-item">
-					<router-link to="" class="nav-link" href="#myCodes" data-toggle="tab">Codes</router-link>
+					<router-link to="" class="nav-link" data-toTab="#myCodes">Codes</router-link>
 				</li>
 			</ul>
 		</div>
