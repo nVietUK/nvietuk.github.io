@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import myProfile from '@/vue/Home.vue'
+import myProfile from '@/vue/myProfile.vue'
+import myGames from '@/vue/pacman.vue'
 </script>
 
 <template>
@@ -10,7 +11,7 @@ import myProfile from '@/vue/Home.vue'
 					<router-link to="/home" class="nav-link" data-toTab="#myProfile">My profile</router-link>
 				</li>
 				<li class="nav-item">
-					<router-link to="" class="nav-link" data-toTab="#myGames">Games</router-link>
+					<router-link to="/" class="nav-link" data-toTab="#myGames">Games</router-link>
 				</li>
 				<li class="nav-item">
 					<router-link to="" class="nav-link" data-toTab="#myCodes">Codes</router-link>
@@ -23,7 +24,7 @@ import myProfile from '@/vue/Home.vue'
 					<myProfile></myProfile>
 				</div>
 				<div class="tab-pane" id="myGames">
-					<a>lmao</a>
+					<myGames/>
 				</div>
 			</div>
 		</div>

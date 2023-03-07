@@ -56,7 +56,7 @@ $(document).ready(function () {
             mainTabs.forEach((tab) => tab.classList.remove("active"));
             mainTabContents.forEach((tabContent) => tabContent.classList.remove("active"));
             tab.classList.add("active");
-            document.querySelector(tab.getAttribute("data-toTab")!)!.classList.add("active");
+            document.querySelector(tab.getAttribute("data-toTab")!)?.classList.add("active");
         });
     });
 })
