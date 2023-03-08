@@ -1,9 +1,6 @@
 <template>
-    <div id="t" class="offline">
-        <div id="messageBox" class="sendmessage">
-            <div class="niokbutton" onclick="okbuttonsend()"></div>
-        </div>
-        <div id="main-frame-error" class="interstitial-wrapper">
+    <div id="t" class="offline fillHeight theDinoGame">
+        <div class="interstitial-wrapper">
             <div id="main-content">
                 <div class="icon icon-offline" alt=""></div>
             </div>
@@ -442,7 +439,6 @@
          * Adjust game space dimensions on resize.
          */
         adjustDimensions: function () {
-            clearInterval(this.resizeTimerId_);
             this.resizeTimerId_ = null;
 
             var boxStyles = window.getComputedStyle(this.outerContainerEl);
@@ -451,9 +447,6 @@
 
             this.dimensions.WIDTH = this.outerContainerEl.offsetWidth - padding * 2;
             this.dimensions.WIDTH = Math.min(DEFAULT_WIDTH, this.dimensions.WIDTH); //Arcade Mode
-            if (this.activated) {
-                this.setArcadeModeContainerScale();
-            }
 
             // Redraw the elements back onto the canvas.
             if (this.canvas) {
@@ -873,28 +866,6 @@
          */
         setArcadeMode() {
             document.body.classList.add(Runner.classes.ARCADE_MODE);
-            this.setArcadeModeContainerScale();
-        },
-
-        /**
-         * Sets the scaling for arcade mode.
-         */
-        setArcadeModeContainerScale() {
-            const windowHeight = window.innerHeight;
-            const scaleHeight = windowHeight / this.dimensions.HEIGHT;
-            const scaleWidth = window.innerWidth / this.dimensions.WIDTH;
-            const scale = Math.max(1, Math.min(scaleHeight, scaleWidth));
-            const scaledCanvasHeight = this.dimensions.HEIGHT * scale;
-            // Positions the game container at 10% of the available vertical window
-            // height minus the game container height.
-            const translateY = Math.ceil(Math.max(0, (windowHeight - scaledCanvasHeight -
-                Runner.config.ARCADE_MODE_INITIAL_TOP_POSITION) *
-                Runner.config.ARCADE_MODE_TOP_POSITION_PERCENT)) *
-                window.devicePixelRatio;
-
-            const cssScale = scale;
-            this.containerEl.style.transform =
-                'scale(' + cssScale + ') translateY(' + translateY + 'px)';
         },
 
         /**
@@ -2769,12 +2740,17 @@
     };
 })();
 
-
-function onDocumentLoad() {
-    new Runner('.interstitial-wrapper');
+function addFunctionOnTrigger(funcName, object) {
+    document.querySelector(object)?.addEventListener("mouseover", () => {
+        funcName();
+    })
 }
 
-document.addEventListener('DOMContentLoaded', onDocumentLoad);
+$(window).ready(function () {
+    var dinoTheGame = new Runner('.interstitial-wrapper')
+    addFunctionOnTrigger(dinoTheGame.adjustDimensions.bind(dinoTheGame), ".theDinoGame")
+})
+
 </script>
 
 <style scoped>
@@ -2785,7 +2761,7 @@ document.addEventListener('DOMContentLoaded', onDocumentLoad);
 }
 
 .icon-offline {
-    content: -webkit-image-set(url(assets/default_100_percent/100-error-offline.png) 1x, url(assets/default_200_percent/200-error-offline.png) 2x);
+    content: -webkit-image-set(url(@/webp/100-error-offline.png));
     position: relative;
 }
 
@@ -2800,10 +2776,7 @@ document.addEventListener('DOMContentLoaded', onDocumentLoad);
     color: #2b2b2b;
     font-size: 1em;
     line-height: 1.55;
-    margin: 0 auto;
     max-width: 600px;
-    padding-top: 100px;
-    width: 100%;
 }
 
 .offline .runner-container {

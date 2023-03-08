@@ -54,6 +54,8 @@ function tabEffect(tabName: string, paneName: string) {
     });
 }
 
+
+
 $(document).ready(function () {
     // frame resizing
     const mainScreen = $('#mainScreen')

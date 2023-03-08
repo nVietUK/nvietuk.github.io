@@ -7,7 +7,7 @@ import gameDino from '@/vue/dinogame.vue'
 	<div class="row fillHeight">
 		<div class="col-3 boxOutline" style="padding-left: 0%; padding-right: 0%;">
 			<ul class="nav flex-column">
-				<li class="nav-item active">
+				<li class="nav-item">
 					<router-link to="/home" class="nav-link mainTab1" data-toTab="#myProfile">My profile</router-link>
 				</li>
 				<li class="nav-item">
@@ -20,21 +20,21 @@ import gameDino from '@/vue/dinogame.vue'
 		</div>
 		<div class="col-9">
 			<div class="tab-content fillHeight">
-				<div class="tab-pane active mainPane1" id="myProfile">
+				<div class="tab-pane mainPane1" id="myProfile">
 					<myProfile></myProfile>
 				</div>
-				<div class="tab-pane fillHeight mainPane1" id="myGames">
+				<div class="tab-pane mainPane1 fillHeight" id="myGames">
 					<div class="row fillHeight">
 						<div class="col-3 boxOutline" style="padding-left: 0%; padding-right: 0%;">
 							<ul class="nav flex-column">
 								<li class="nav-item active">
-									<router-link to="/" class="nav-link mainTab2" data-toTab="#gameDino">Dino</router-link>
+									<router-link to="/dinogame" class="nav-link mainTab2" data-toTab="#gameDino">Dino</router-link>
 								</li>
 							</ul>
 						</div>
 						<div class="col-9">
-							<div class="tab-content well">
-								<div class="tab-pane mainPane2 active" id="gameDino">
+							<div class="tab-content fillHeight">
+								<div class="tab-pane mainPane2 active fillHeight" id="gameDino">
 									<gameDino></gameDino>
 								</div>
 							</div>
@@ -54,6 +54,8 @@ import gameDino from '@/vue/dinogame.vue'
 .mainTab2 {}
 
 .mainPane2 {}
+
+.theDinoGame {}
 
 .fillHeight {
 	height: 100%;
